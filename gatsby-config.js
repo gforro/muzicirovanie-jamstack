@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
-		title: 'Gatsby Bulma Quickstart',
-		author: 'Aman Mittal',
+		title: 'Muzicírovanie',
+		author: 'Gabriel Forró',
 		imageUrl: 'https://i.imgur.com/Vz81GEl.png',
 		description: 'A Project to bootstrap your next Gatsby + Bulma site.',
 		keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter`,
@@ -36,16 +36,33 @@ module.exports = {
 				orientation: 'portrait'
 			}
 		},
-		`gatsby-plugin-sass`,
 		{
-			resolve: `gatsby-plugin-google-analytics`,
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `mdx`,
+				path: `${__dirname}/src/mdx/`,
+				ignore: ['**/course-types/*']
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `courseTypes`,
+				path: `${__dirname}/src/mdx/course-types/`,
+			},
+		},
+		'gatsby-plugin-mdx',
+		'gatsby-plugin-sass',
+		{
+			resolve: 'gatsby-plugin-google-analytics',
 			options: {
 				trackingId: 'UA-XXXXXXXX-X',
 				// Setting this parameter is optional (requried for some countries such as Germany)
 				anonymize: true
 			}
 		},
-		`gatsby-plugin-sitemap`
+		'gatsby-plugin-sitemap',
+		'gatsby-plugin-layout'
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',
