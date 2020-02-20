@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import {Link} from 'gatsby';
 
-const Card = ({imageFluid, imageAlt, title, description}) => {
+const Card = ({imageFluid, imageAlt, title, description, courseCode}) => {
     return (
         <div className="card" style={{height: '100%', display: "flex", flexDirection: "column"}}>
             <div className="card-image">
@@ -11,13 +11,13 @@ const Card = ({imageFluid, imageAlt, title, description}) => {
                 </figure>
             </div>
             <div className="card-content"  style={{marginBottom: "auto"}}>
-                <h1 class="title">{title}</h1>
+                <h1 className="title">{title}</h1>
                 <div className="content">
                     {description}
                 </div>
             </div>
             <div className="card-footer">
-                <Link to='/haha' className="card-footer-item has-background-primary has-text-white">Vybrať</Link>
+                <Link to={`/course/${courseCode}`} className="card-footer-item has-background-primary has-text-white">Vybrať</Link>
             </div>
         </div>
     );
